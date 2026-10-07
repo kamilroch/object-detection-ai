@@ -8,6 +8,10 @@ This project focuses on detecting fire trucks and other road vehicles in video r
 
 The project included dataset preparation, model training, hyperparameter testing and development of a Streamlit application for video analysis.
 
+## Application preview
+
+![Streamlit application](images/app_demo.png)
+
 ## Key features
 
 - Object detection using YOLOv8
