@@ -1,0 +1,15 @@
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+MODEL_PATH = PROJECT_ROOT / "models" / "best.pt"
+
+FIRE_CLASS_NAME = "fire_truck"
+OTHER_CLASS_NAME = "other_vehicle"
+
+CONF_THRESHOLD = 0.60
+SMOOTHING = 0.75
+MIN_HITS_TO_SHOW = 5
+MAX_MISSED_FRAMES = 40
+IOU_TRACK_THRESHOLD = 0.15
+OTHER_VEHICLE_THRESHOLD = 0.70
+MIN_BOX_AREA_RATIO = 0.015
