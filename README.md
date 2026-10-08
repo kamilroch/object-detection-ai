@@ -12,6 +12,16 @@ The project included dataset preparation, model training, hyperparameter testing
 
 ![Streamlit application](images/app_demo.png)
 
+## Demo
+
+### Day detection
+
+![Day detection demo](images/detection_day.gif)
+
+### Night detection
+
+![Night detection demo](images/detection_night.gif)
+
 ## Key features
 
 - Object detection using YOLOv8
