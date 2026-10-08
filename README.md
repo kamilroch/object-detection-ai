@@ -95,9 +95,26 @@ The application allows the user to:
 
 ```text
 object-detection-ai/
-├── app.py
-├── training.py
-├── best.pt
-├── requirements.txt
+├── src/
+│   ├── __init__.py        # Python package initialization
+│   ├── app.py             # Main Streamlit application
+│   ├── config.py          # Project configuration and default parameters
+│   ├── detection.py       # YOLOv8 inference and video processing
+│   ├── tracking.py        # Object tracking, IoU matching and smoothing
+│   ├── ui.py              # Dashboard styling and UI components
+│   └── utils.py           # Helper functions and CSV export
+│
+├── models/
+│   └── best.pt            # Trained YOLOv8 model weights
+│
 ├── images/
-└── README.md
+│   ├── app_demo.png       # Application preview
+│   └── detection_day.gif  # Detection demo
+│
+├── training/
+│   └── training.py        # Final model training configuration
+│
+├── requirements.txt       # Python dependencies
+├── .gitignore             # Files excluded from Git
+├── RUN.md                 # Local setup and run instructions
+└── README.md              # Project documentation
