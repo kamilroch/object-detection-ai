@@ -40,18 +40,12 @@ for key, default in {
         st.session_state[key] = default
 
 
-# ============================================================
-# HEADER
-# ============================================================
 
 st.markdown(
     '<div class="hero-wrap"><div class="hero-left"><div class="hero-icon">🚨</div><div><div class="hero-title">Vehicle Detection & Analysis System</div></div></div><div class="top-pills"><div class="top-pill active">▶ Video Analysis</div><div class="top-pill">Project Info</div><div class="top-pill">Model Details</div></div></div>',
     unsafe_allow_html=True
 )
 
-# ============================================================
-# MAIN ROW
-# ============================================================
 
 left, center, right = st.columns([0.95, 2.45, 1.25], gap="large")
 
@@ -223,10 +217,6 @@ with right:
                 use_container_width=True
             )
 
-
-# ============================================================
-# PROCESSING
-# ============================================================
 
 if analyze:
     if uploaded_file is None:
