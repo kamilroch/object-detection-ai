@@ -14,8 +14,6 @@ The project included dataset preparation, model training, hyperparameter testing
 
 ## Demo
 
-### Day detection
-
 ![Day detection demo](images/detection_day.gif)
 
 
