@@ -18,9 +18,6 @@ The project included dataset preparation, model training, hyperparameter testing
 
 ![Day detection demo](images/detection_day.gif)
 
-### Night detection
-
-![Night detection demo](images/detection_night.gif)
 
 ## Key features
 
