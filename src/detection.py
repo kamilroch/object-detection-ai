@@ -79,11 +79,10 @@ def process_video(
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         writer = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
 
-    # Lista aktualnie śledzonych obiektów
+
     tracks = []
     next_track_id = 1
 
-    # Zbiory ID, żeby ten sam pojazd nie był liczony wiele razy
     counted_fire_ids = set()
     counted_other_ids = set()
 
@@ -113,7 +112,7 @@ def process_video(
         for track in tracks:
             track["missed"] += 1
 
-        # YOLO analizuje aktualną klatkę filmu
+    
         results = model(frame, conf=conf_threshold, verbose=False)
 
         current_detections = []
@@ -142,19 +141,16 @@ def process_video(
 
                 EDGE_MARGIN = 130
 
-                # Filtr usuwa obiekty znajdujące się blisko krawędzi obrazu
+    
                 if x1 < EDGE_MARGIN or x2 > width - EDGE_MARGIN:
                     continue
 
-                # Filtr usuwa bardzo małe wykrycia
                 if box_area / frame_area < min_box_area_ratio:
                     continue
 
-                # Filtr usuwa obiekty znajdujące się wysoko w kadrze
                 if center_y < height * 0.28:
                     continue
-
-                # Dla innych pojazdów wymagany jest wyższy confidence
+                    
                 if class_name == OTHER_CLASS_NAME and conf < OTHER_VEHICLE_THRESHOLD:
                     continue
 
@@ -166,7 +162,6 @@ def process_video(
 
         used_tracks = set()
 
-        # Przypisanie nowych detekcji do istniejących obiektów
         for det in current_detections:
 
             best_iou = 0
@@ -253,7 +248,6 @@ def process_video(
                     track["id"]
                 )
 
-        # Zapis rzeczywistych klatek z potwierdzoną detekcją wozu strażackiego.
         if confirmed_fire_confidences:
             frame_best_conf = max(confirmed_fire_confidences)
             ok, encoded = cv2.imencode(
@@ -278,7 +272,6 @@ def process_video(
                     best_snapshot_conf = frame_best_conf
                     snapshots["best"] = snapshot
 
-        # Usunięcie obiektów, które zniknęły z kadru na zbyt długo
         tracks = [
             track for track in tracks
             if track["missed"] <= MAX_MISSED_FRAMES
@@ -294,7 +287,6 @@ def process_video(
     cap.release()
     writer.release()
 
-    # Podsumowanie wyników analizy filmu
     summary = {
         "fire_count": len(counted_fire_ids),
         "other_count": len(counted_other_ids),
