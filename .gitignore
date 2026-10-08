@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets
+.env
+.streamlit/secrets.toml
+*.key
+
+# Local / generated files
+*.mp4
+*.avi
+*.mov
+*.csv
+
+# YOLO / training outputs
+runs/
+datasets/
+data/
+wandb/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
