@@ -17,7 +17,12 @@ The project included dataset preparation, model training, hyperparameter testing
 - Object detection using YOLOv8
 - Two classes: `fire_truck` and `other_vehicle`
 - Video analysis with bounding boxes and confidence scores
-- Vehicle counting and basic object tracking
+- Vehicle counting and object tracking
+- Configurable detection parameters
+- Detection timeline
+- Automatic detection snapshots
+- First, best and last fire truck detection preview
+- Detection confidence statistics
 - CSV report generation
 - Processed video export
 - Streamlit user interface
@@ -46,21 +51,29 @@ Final configuration:
 - image size: 640 × 640
 - batch size: 16
 - optimizer: SGD
-- learning rate: 0.005
 
 The trained model was exported as `best.pt`.
 
 ## Application
 
-A Streamlit application was developed to:
+A Streamlit application was developed for video-based vehicle detection and analysis.
 
-- upload `.mp4` videos
-- run object detection
-- display detection boxes and confidence scores
-- count detected vehicles
-- generate statistics
-- export results to CSV
-- download processed video
+The application allows the user to:
+
+- upload `.mp4` video files
+- run YOLOv8 object detection
+- display bounding boxes and confidence scores
+- count unique detected vehicles
+- track objects between consecutive video frames
+- adjust detection confidence
+- adjust detection stability
+- define minimum detected object size
+- adjust tracking sensitivity using IoU
+- display detection statistics
+- visualize first and last confirmed detections on a timeline
+- automatically capture first, best and last fire truck detection frames
+- export analysis results to CSV
+- download the processed video with detection boxes
 
 ## Technologies
 
